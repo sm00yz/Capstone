@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Travel Planner</title></head><body><header><div class="pageTitle"><h1>Travel Planner</h1></div></header><main><section><form id="form" class="mainForm"><div><label for="location" class="label"><span style="color: #4d4b4b;"><b>Where</b> </span>do you want to travel?</label> <input id="location" class="input" value="enter a city name"><br><br><label class="label" for="date"><span style="color: #4d4b4b;"><b>Where</b> </span>do you want to travel?</label> <input type="date" id="date" class="input"><br><br></div><input id="submit" type="submit" value="Submit"></form></section><section id="content"><div id="info"></div><div><img id="cityImage" height="150px" width="99px"></div></section><section><div id="button"><button id="save">Save Trip</button> <button id="remove">Remove Trip</button> <button id="show">Show Trips</button></div></section><section id="savedtrip" onclick="return Client.showtn(event)"><div><h2>Saved Trip</h2></div><div id="localStorage"></div></section></main><footer></footer><script src="main.js"></script></body><script>// Check that service workers are supported
+  if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+      });
+  }</script><script src="../../../dist/main.js"></script></html>

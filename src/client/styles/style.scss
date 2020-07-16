@@ -1,0 +1,117 @@
+
+body{
+    width: 600px;
+    margin: 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url(../views/background.jpeg);
+    background-size: cover;
+
+}
+span{
+    background-color: #fbfeff;
+}
+header{
+    padding: 3em;
+    color: #a30101;
+    text-shadow:
+    0 1px #808d93,
+    -1px 0 #cdd2d5,
+    -1px 2px #808d93,
+    -2px 1px #cdd2d5,
+    -2px 3px #808d93,
+    -3px 2px #cdd2d5,
+    -3px 4px #808d93,
+    -4px 3px #cdd2d5,
+    -4px 5px #808d93,
+    -5px 4px #cdd2d5,
+    -5px 6px #808d93,
+    -6px 5px #cdd2d5,
+    -6px 7px #808d93,
+    -7px 6px #cdd2d5,
+    -7px 8px #808d93,
+    -8px 7px #cdd2d5;}
+    
+#background{
+    width: 600px;
+    position: absolute;
+    z-index: -2;
+    opacity: 0.5;
+    background-size: cover;
+
+}
+.label{
+    padding: 2em;
+}
+.mainForm{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+}
+#submit{
+    width: 6em;
+    height: 4em;
+    background-color: #4d4b4b;
+    border: none;
+    color: cornsilk;
+}
+#content{
+    display: none;
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: center;
+    align-content: center;
+    background-color: snow;
+
+}
+
+#button{
+    padding: 1em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+button {
+    font-weight: bold;
+    margin-right: 2em;
+  }
+#cityImage{
+    padding: 3em;
+    display: none;
+}
+#info{
+    padding: 3em;
+    text-justify: center;
+    opacity: 2;
+    display: none;
+    font-weight: bold;
+    font-size: medium;
+
+}
+#savedtrip{
+    display: none;   
+    background-color: snow;
+    padding: 3em;
+
+ 
+}
+
+@media (max-width: 400px) {
+    body{
+        width: 100%;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .mainForm{
+        display: flex;
+        flex-direction: column ;
+    }
+    #submit{
+        background-color: rgb(77, 75, 75);
+        border: none;
+        color: cornsilk; 
+    }
+    header{
+        padding: 1em;
+    }
+  }
