@@ -1,16 +1,36 @@
-
 body{
-    width: 600px;
-    margin: 0 auto;
-    font-family: 'Times New Roman', Times, serif;
+    margin: 0 ;
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: center;
     background-image: url(../views/background.jpeg);
     background-size: cover;
-
 }
-span{
-    background-color: #fbfeff;
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+p {
+    margin: 0;
+    padding: 1em 0;
+    background-color: #ffffff;
+}
+
+.btn{
+    display: block;
+    background:  #4d4b4b;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1em 2em;
+    width: 80%;
+}
+.btn:hover{
+    background-color: whitesmoke;
+    color: #4d4b4b;
 }
 header{
+    background-color: #ffffff;
     padding: 3em;
     color: #a30101;
     text-shadow:
@@ -29,25 +49,7 @@ header{
     -6px 7px #808d93,
     -7px 6px #cdd2d5,
     -7px 8px #808d93,
-    -8px 7px #cdd2d5;}
-    
-#background{
-    width: 600px;
-    position: absolute;
-    z-index: -2;
-    opacity: 0.5;
-    background-size: cover;
-
-}
-.label{
-    padding: 2em;
-}
-.mainForm{
-    display: flex;
-    flex-direction: row ;
-    align-items: center;
-    justify-items: center;
-    justify-content: space-around;
+    -8px 7px #cdd2d5;
 }
 #submit{
     width: 6em;
@@ -56,62 +58,119 @@ header{
     border: none;
     color: cornsilk;
 }
-#content{
+#submit:hover{
+    background-color: whitesmoke;
+    color: #4d4b4b;
+}
+/* section 1 */
+#section1{
+    background-color: #ffffff;
+    color: #4d4b4b;
+    padding: 2em;
+}
+/* section2 */
+#section2{
     display: none;
-    display: flex;
-    flex-direction: row-reverse; 
-    justify-content: center;
-    align-content: center;
-    background-color: snow;
+    background-color: #eaeaea;
 
 }
+/* section3 */
+#section3{
+    background-color: #ffffff;
 
+
+}
+#section3 ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#section3 li{
+    margin-bottom: 1em;
+}
 #button{
-    padding: 1em;
+    padding: 3em;
     display: flex;
     align-content: center;
     justify-content: center;
 }
-button {
-    font-weight: bold;
-    margin-right: 2em;
-  }
-#cityImage{
-    padding: 3em;
+/* section4 */
+#section4{
     display: none;
+    background-color: #eaeaea;
+    color: #4d4b4b;
+    padding: 2em;
+} 
+
+
+/* footer */
+footer{
+    padding: 2em;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    text-align: center;
 }
-#info{
-    padding: 3em;
-    text-justify: center;
-    opacity: 2;
-    display: none;
-    font-weight: bold;
-    font-size: medium;
+/* media Query for bigger size*/
+@media (min-width: 700px) {
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto,2.5em) 1fr) ;
+}
+.wrap ,
+#section3 ul {
+grid-column: 2/4;
+}
+
+header .pageTitle{ 
+    grid-column: 1/4; 
+}
+.btn{
+    display: block;
+    background:  #4d4b4b;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1em ;
+    text-align: center;
+    width:93%;
 
 }
-#savedtrip{
-    display: none;   
-    background-color: snow;
-    padding: 3em;
+.btn:hover{
+    background-color: whitesmoke;
+    color: #4d4b4b;
+}
+#button ul{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: center;
 
- 
+}
+#button ul li{
+    width: 93%;
+}
+img{
+    padding: 1em;
+}
+p{
+    margin-left: 2em;
 }
 
-@media (max-width: 400px) {
-    body{
-        width: 100%;
-        font-family: 'Times New Roman', Times, serif;
-    }
-    .mainForm{
-        display: flex;
-        flex-direction: column ;
-    }
-    #submit{
-        background-color: rgb(77, 75, 75);
-        border: none;
-        color: cornsilk; 
-    }
-    header{
-        padding: 1em;
-    }
-  }
+#content{
+    margin: 0;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 2fr;
+    background-color: #fbfeff; 
+    align-content: space-around;
+    justify-content: center;
+}
+footer div{
+   grid-column: 2/4; 
+}
+
+}

@@ -45,6 +45,7 @@ const getDatafromGeonames =async (geonameAPIURL, city, geonamesKey) =>{
  }// getDatafromGeonames
 
 var userDate= new Date(date);
+data.date=userDate;
 const dateTimeFormat = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }) 
 const [{ value: month },,{ value: day },,{ value: year }] = dateTimeFormat .formatToParts(userDate ) 
     const weatherKey= '&key=49eaa17bb5c04ac6ae7f13db6adb8dae'
@@ -73,10 +74,10 @@ const [{ value: month },,{ value: day },,{ value: year }] = dateTimeFormat .form
                   console.log("error", error);
                 }
                 };    //futureWeathergetData
-      //get image for the city from pixabay          
-  const pixabayURL= "https://pixabay.com/api/"
-  const pixaBayApiKey= "?key=17359837-be2957915a78184722fc76efe&q=";
-  const getCityImage= async(pixabayURL, pixaBayApiKey, city)=>{
+      //get image for the city from pixabay     
+  const getCityImage= async(city)=>{
+    const pixabayURL= "https://pixabay.com/api/"
+    const pixaBayApiKey= `?key=17359837-be2957915a78184722fc76efe&q=${city}&category=places` ;
         const res= await fetch(pixabayURL+pixaBayApiKey+city)
         .then(res => res.json())
         try{ 
@@ -90,8 +91,8 @@ const [{ value: month },,{ value: day },,{ value: year }] = dateTimeFormat .form
         };//getCityImage
   //update DOM element 
  const updateDomElement= async()=>{
-  document.getElementById('info').style.display="block"
-  document.getElementById('cityImage').style.display="block"
+   document.getElementById("section2").style.display="block"
+
   const req= await fetch('/all')
   .then(req => req.json())
   try{
@@ -125,7 +126,8 @@ getDatafromGeonames(geonameAPIURL,city,geonamesKey).then((res)=>{
  postData('/all', data)
  updateDomElement()
 })
-getCityImage(pixabayURL, pixaBayApiKey, city);
+getCityImage(city);
+
 }//handlereq function
 //post data  to local server
 const postData= async(url='', data={})=>{

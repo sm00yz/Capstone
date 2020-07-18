@@ -1,9 +1,6 @@
 
-//const savebtn=document.getElementById("save");
-//const showtn=document.getElementById("show");
-//const removebtn=document.getElementById("remove");
 const localserv= document.getElementById("localStorage");
-const savedtrip=document.getElementById("savedtrip")
+const savedtrip=document.getElementById("section4")
 const showtn = async(event)=>{
   if(savedtrip.style.display==="block"){
      savedtrip.style.display="none"
@@ -19,11 +16,10 @@ const savebtn= async(event)=>{
             try{ 
               console.log("data from local server")
               console.log(res);
-              const resindex=res[res.length-1]
               console.log(res[res.length-1])
               if(localStorage.length!=0 ){
                 console.log(!checklocalStorage(res[res.length-1].city))
-                if(!checklocalStorage(res[res.length-1].city)){
+                if(!checklocalStorage(res[res.length-1].city, res[res.length-1].date)){
                   localStorage.setItem(`Trip ${localStorage.length+1}`, JSON.stringify(res[res.length-1]));
               }
             }else localStorage.setItem(`Trip ${localStorage.length+1}`, JSON.stringify(res[res.length-1]));
@@ -34,14 +30,17 @@ const savebtn= async(event)=>{
             }        
 
 }// savebtn
-function checklocalStorage(city){
+function checklocalStorage(city, date){
   var check;
   for(let i =0; i<localStorage.length; i++){
     const key= localStorage.key(i);
      var value = JSON.parse(localStorage.getItem(key));
    if(city == value.city){
+     if(date==value.date)
       check= true
-   }else check=false
+   }else if(city == value.city & date> value.date){
+     check=false
+    }else check=false
                 
   }//for
   return check;              
@@ -53,9 +52,10 @@ function writingData(){
               var value = JSON.parse(localStorage.getItem(key));
               document.getElementById("localStorage").innerHTML +=`${key}: <br /> city is  ${JSON.stringify(value.city)} <br />
               Country is  ${JSON.stringify(value.countryCode)} <br />
+              departing  date is  ${JSON.stringify(value.date)} <br />
               Typical  is weather tempertur  is  ${JSON.stringify(value.temperture)}  and it is  <br />
               ${JSON.stringify(value.description)}  <br />
-              ================================================
+            
               <br />`;
             
             }

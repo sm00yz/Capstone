@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin')
 module.exports = {
     entry: './src/client/index.js',
+    mode: 'production',
     output: {
         libraryTarget: 'var',
         library: 'Client'
@@ -17,9 +18,15 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
+
+        {
+          test: /\.scss$/,
+          use: [
             {
-                test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+              loader: MiniCssExtractPlugin.loader,
+            },
+            'css-loader','sass-loader'
+          ],
         },
         {
             test: /\.(gif|png|jpe?g|svg)$/i,
@@ -44,8 +51,6 @@ module.exports = {
         new MiniCssExtractPlugin({ filename: "[name].css" }),
 
         new CleanWebpackPlugin({
-          // Simulate the removal of files
-          dry: true,
           // Write Logs to Console
           verbose: true,
           // Automatically remove all unused webpack assets on rebuild
